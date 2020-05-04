@@ -105,11 +105,13 @@ class SpeechRecorder(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         sl = SettingLoader()
-        self.settings = sl.settings
+        self.settings = sl.settings # To set the multiplier and energy_ratio in settings.yml, it need to be set in models/settings etc.
 
     def run(self):
-        responsive = OwnSpeech.ResponsiveRecognizer(multiplier=self.settings.options.ownspeech_energy_ratio, 
-                                                    energy_ratio=self.settings.options.ownspeech_multiplier)
+        #responsive = OwnSpeech.ResponsiveRecognizer(multiplier=self.settings.options.ownspeech_energy_ratio,    
+        #                                            energy_ratio=self.settings.options.ownspeech_multiplier)
+        responsive = OwnSpeech.ResponsiveRecognizer(multiplier=1.0, 
+                                                    energy_ratio=1.5)   
         mic = OwnSpeech.MutableMicrophone()
         Utils.print_success("[SpeechRecorder] Listening...")
         self.write_status("is_recording")
