@@ -1,3 +1,6 @@
+##
+Outdated! 
+
 My tweaks for a faster start to speak after the hotword is triggered. 
 
 After the hotword is triggered, the speech recorder immediately start to record, therefor I use some code taken from the [Mycroft project](https://github.com/MycroftAI/mycroft-core/tree/dev/mycroft/client/speech).
